@@ -6,10 +6,10 @@ class Weather extends Component{
     state = {
         inputValue: "",
         dataValue:"",
-        tempNow:null,
-        tempDayeOne:null,
-        tempDayeTow:null,
-        tempDayeThree:null,
+        tempNow:{},
+        tempDayeOne:{},
+        tempDayeTow:{},
+        tempDayeThree:{},
         isCityFounde:false
     }
 
@@ -23,10 +23,9 @@ class Weather extends Component{
             dataValue:this.state.inputValue,
             inputValue:"",
         });
-        const city = this.state.inputValue;
         
         const fetchApi = async()=>{
-            const  url = `https://goweather.herokuapp.com/weather/${city}`;
+            const  url = `https://goweather.herokuapp.com/weather/${this.state.inputValue}`;
             const response = await fetch(url);
             const resJson = await  response.json();
             
@@ -43,44 +42,35 @@ class Weather extends Component{
 
     render() {
 
-        const {tempNow,tempDayeOne,tempDayeTow,tempDayeThree,inputValue} = this.state;
         return (
             <>
-
                 <div className="weather">
                     <input type="text" 
                     className = "input-box"
-                    value={inputValue}
+                    value={this.state.inputValue}
                     onChange = {this.inputChangeHandler}
                     />
                     <button
                     className = "search-button"
                     onClick = {this.addTemperature}
                     >search</button>
-                    {
-                        tempNow !== null &&
-                        <>
-                         {tempNow.description}
-                        <div  className="temp-box">
-                        <p>Today: {tempNow.temperature}</p>
-                        <p>{tempNow.wind}</p>
+                    <div  className="temp-box">
+                        <p>Today {this.state.tempNow.temperature}</p>
+                        <p>{this.state.tempNow.wind}</p>
                     </div>
                         
                     <div className="temp-box">
-                       <p> Daye {tempDayeOne.day}: {tempDayeOne.temperature}</p>
-                        <p>{tempDayeOne.wind}</p>
+                       <p> Daye 1:{this.state.tempDayeOne.temperature}</p>
+                        <p>{this.state.tempDayeOne.wind}</p>
                     </div>
                     <div className="temp-box">
-                        <p>Daye {tempDayeTow.day}: {tempDayeTow.temperature}</p>
-                        <p>{tempDayeTow.wind}</p>
+                        <p>Daye 2:{this.state.tempDayeTow.temperature}</p>
+                        <p>{this.state.tempDayeTow.wind}</p>
                     </div>
                     <div className="temp-box">
-                        <p>Daye {tempDayeThree.day}: {tempDayeThree.temperature}</p>
-                        <p>{tempDayeThree.wind}</p>
+                        <p>Daye 3:{this.state.tempDayeThree.temperature}</p>
+                        <p>{this.state.tempDayeThree.wind}</p>
                     </div>
-                    </>
-                    }
-                   
                 </div>
             </>
         );
