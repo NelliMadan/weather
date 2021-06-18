@@ -1,37 +1,45 @@
 table, th, td {
-  background-color: rgb(248,248,248);
-  padding: 10px;
+  background-color: rgb(255, 255, 255);
+  padding: 15px 20px;
+}
+input[type=text] {
+    width: 130px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    -webkit-transition: width 0.7s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+  
+input[type=text]:focus {
+    width: 60%;
+    outline: none;
 }
 
-table {
+table { 
     width: 100%;
     padding: 15px;
     margin: auto;
-    background-color:	rgb(255,255,255);
+    background-color:rgb(245, 239, 239);
+    opacity: 0.7;
     border-radius: 8px;
 }
 .weatherBox{
-    margin:5% auto ;
-    background-image: url(../img/photo-1484542603127-984f4f7d14cb.jpg);
-    background-size: cover;
+    margin:5% auto;
     padding: 60px 100px;
-    width: 30%;
+    width: 45%;
     height:65vh;
     border-radius: 8px;
 }
 .weatherBox input{
-    margin-bottom: 30px;
+    margin-bottom: 60px;
     padding: 7px ;
 }
 .weatherBox button{
-    padding: 6px;
-}
-.inputBox{
-    padding: 7px 30px;
-    border:none
-}
-.inputBox:focus{
-    outline: none;
+    padding: 9px;
+    border-radius: 0 6px 6px 0;
 }
 .searchButton{
     padding: 5px 10px;

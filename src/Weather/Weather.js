@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import { Component } from "react";
 import classes from "./weather.module.css";
 
 class Weather extends Component {
@@ -29,7 +29,6 @@ class Weather extends Component {
       const response = await fetch(url);
       const resJson = await response.json();
 
-      console.log(resJson);
       this.setState({
         tempNow: resJson,
         tempDayeOne: resJson.forecast[0],
@@ -46,18 +45,19 @@ class Weather extends Component {
     return (
       <>
         <div className={classes.weatherBox}>
-          <input
-            type="text"
-            className={classes.inputBox}
+          <input 
+            type="text" 
+            name="search" 
+            placeholder="Search.."
             value={inputValue}
-            onChange={this.inputChangeHandler}
-          />
-          <button
+            onChange={this.inputChangeHandler}/>
+           <button
             className={classes.searchButton}
             onClick={this.addTemperature}
           >
             search
-          </button>
+          </button> 
+        
 
           <table>
             <tr>
