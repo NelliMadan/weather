@@ -62,8 +62,8 @@ class Weather extends Component {
           <table>
             <tr>
               <th>Day</th>
-              <th>temperature</th>
-              <th>wind</th>
+              <th>Temperature</th>
+              <th>Wind</th>
             </tr>
             <tr>
               <td>Today</td>
